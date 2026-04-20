@@ -2,8 +2,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 import os
 
-# ── Konfigurasi koneksi MySQL ─────────────────────────────────────────────────
-# Ganti nilai di bawah sesuai konfigurasi MySQL lokal kamu
 DB_USER     = os.getenv("DB_USER", "root")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 DB_HOST     = os.getenv("DB_HOST", "localhost")
@@ -14,8 +12,8 @@ DATABASE_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB
 
 engine = create_engine(
     DATABASE_URL,
-    echo=False,          # Set True untuk debug query SQL di terminal
-    pool_pre_ping=True,  # Cek koneksi sebelum dipakai (penting untuk MySQL)
+    echo=False,          
+    pool_pre_ping=True,  
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -25,7 +23,6 @@ class Base(DeclarativeBase):
     pass
 
 
-# Dependency untuk mendapatkan DB session
 def get_db():
     db = SessionLocal()
     try:
