@@ -11,12 +11,11 @@ Goals Tracker adalah sistem manajemen target pribadi di mana setiap user dapat m
 | Komponen | Teknologi |
 |----------|-----------|
 | Framework | FastAPI |
-| Bahasa | Python 3.9+ |
+| Bahasa | Python 3.14.3 |
 | ORM | SQLAlchemy + PyMySQL |
 | Database | MySQL |
 | Autentikasi | JWT (python-jose) |
 | Hashing | bcrypt (passlib) |
-| Deployment | Uvicorn (localhost) |
 | Testing | Postman |
 
 ## Struktur Proyek
@@ -100,9 +99,9 @@ users (1) ──────< goals (Many)
 
 1. Jalankan `POST /users/register` untuk daftar
 2. Jalankan `POST /users/login` → salin `access_token`
-3. Klik tombol **Authorize 🔒** di kanan atas Swagger UI
+3. Klik tombol **Authorize** di kanan atas Swagger UI
 4. Isi `Value: <token_anda>` → klik Authorize
-5. Semua endpoint bertanda 🔒 kini dapat diakses
+5. Semua endpoint bertanda "Gembok" kini dapat diakses
 
 ## Konfigurasi MySQL
 
